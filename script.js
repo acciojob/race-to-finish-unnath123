@@ -9,9 +9,9 @@ for (let i = 1; i <= 5; i++) {
       // Simulate some asynchronous operation
       setTimeout(() => {
         if (i === 3) {
-          reject(`Promise ${i} was rejected`);
+          reject(30);
         } else {
-          resolve(`Promise ${i} was resolved`);
+          resolve(30);
         }
       }, 1000); // Simulating 1 second delay
     })
@@ -21,6 +21,9 @@ for (let i = 1; i <= 5; i++) {
 
 
 
+Promise.any(promises).then((data)=>{
+  //console.log(data);
+  document.getElementById("output").innerText=data;
+})
 
-document.getElementById("output").innerText=Promise.any(promises);
 
